@@ -17,7 +17,7 @@ func TestBag(t *testing.T) {
 	assert.False(bag.IsEmpty(), "Bag should not be empty")
 	assert.Equal(bag.Size(), 2, "Bag size should be 2")
 
-	for item := range bag.Slice() {
+	for _, item := range bag.Slice() {
 		fmt.Println(item)
 	}
 }
