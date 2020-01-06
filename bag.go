@@ -6,28 +6,27 @@ import (
 
 // Bag is a generic interface for bag
 type Bag struct {
-	First *linklist.Node
-	N     int
+	*linklist.LinkList
+	n int
 }
 
 // NewBag creates a new Bag object
 func NewBag() *Bag {
-	return &Bag{nil, 0}
+	return &Bag{linklist.NewLinkList(), 0}
 }
 
 // Add a new item to bag
 func (b *Bag) Add(item interface{}) {
-	oldFirst := b.First
-	b.First = &linklist.Node{Item: item, Next: oldFirst}
-	b.N++
+	b.LinkList.Add(item)
+	b.n++
 }
 
 // Size of the bag
 func (b *Bag) Size() int {
-	return b.N
+	return b.n
 }
 
 // IsEmpty returns true if bag is empty
 func (b *Bag) IsEmpty() bool {
-	return b.First == nil
+	return b.n == 0
 }

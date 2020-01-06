@@ -12,15 +12,12 @@ func TestBag(t *testing.T) {
 
 	bag := NewBag()
 	assert.True(bag.IsEmpty(), "Bag should be empty")
-
 	bag.Add(1)
 	bag.Add(2)
 	assert.False(bag.IsEmpty(), "Bag should not be empty")
 	assert.Equal(bag.Size(), 2, "Bag size should be 2")
 
-	head := bag.First
-	for head != nil {
-		fmt.Println(head.Item)
-		head = head.Next
+	for item := range bag.Slice() {
+		fmt.Println(item)
 	}
 }
