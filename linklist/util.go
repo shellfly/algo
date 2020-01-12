@@ -21,7 +21,7 @@ func (l *LinkList) Add(item interface{}) {
 	l.first = NewNode(item, l.first)
 }
 
-// Slice returns a slice of link list
+// Slice returns a slice of link list for iterating
 func (l *LinkList) Slice() (items []interface{}) {
 	for curr := l.first; curr != nil; curr = curr.next {
 		items = append(items, curr.item)

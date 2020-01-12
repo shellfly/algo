@@ -1,12 +1,12 @@
 /******************************************************************************
- *  Execution:    go run bag.go < input.txt
+ *  Execution:    go run cmd/bag/main.go < input.txt
  *
  *  A generic bag or multiset, implemented using a singly linked list.
  *
  *  % more tobe.txt
  *  to be or not to - be - - that - - - is
  *
- *  % go run bag.go < tobe.txt
+ *  % go run cmd/bag/main.go < tobe.txt
  *  size of bag = 14
  *  is
  *  -

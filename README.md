@@ -11,6 +11,10 @@ Make a Golang implementation of the library so that a Go programmer can learn th
 
 Try to keep the interface and variable name consistent with the original book while not violating Golang coding standards.
 
+## Note
+
+Unlike Java or Python which you can put `main` function in a file directly. In go the `main` function has to be in the `main` package and it's conventional to put it in the **cmd** directory.
+To test each algorithm/data structure, instead of running the file directly, you have to run the file under **cmd** directory.
 
 ## Index
 
@@ -69,5 +73,4 @@ This code is released under MIT.
 
 ## Contribute to this repository
 
-Issue reports and code fixes are welcome. please follow the same style as the code in the repository and add test for your
-code.
+Issue reports and code fixes are welcome. please follow the same style as the code in the repository and add test for your code.
