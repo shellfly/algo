@@ -2,8 +2,8 @@ package linklist
 
 // Node is a generic interface for all nodes in a linklist
 type Node struct {
-	item interface{}
-	next *Node
+	Item interface{}
+	Next *Node
 }
 
 // NewNode create a new Node
@@ -17,14 +17,16 @@ type LinkList struct {
 }
 
 // Add adds a new node
-func (l *LinkList) Add(item interface{}) {
-	l.first = NewNode(item, l.first)
+func (l *LinkList) Add(item interface{}) (n *Node) {
+	n = NewNode(item, l.first)
+	l.first = n
+	return
 }
 
 // Slice returns a slice of link list for iterating
 func (l *LinkList) Slice() (items []interface{}) {
-	for curr := l.first; curr != nil; curr = curr.next {
-		items = append(items, curr.item)
+	for curr := l.first; curr != nil; curr = curr.Next {
+		items = append(items, curr.Item)
 	}
 	return
 }
