@@ -13,7 +13,7 @@ func NewStack() *Stack {
 	return &Stack{}
 }
 
-// IsEmpty
+// IsEmpty ...
 func (s Stack) IsEmpty() bool {
 	return s.first == nil
 }
