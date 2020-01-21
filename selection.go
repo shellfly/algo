@@ -18,6 +18,16 @@ func (p StringSlice) Len() int           { return len(p) }
 func (p StringSlice) Less(i, j int) bool { return p[i] < p[j] }
 func (p StringSlice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
 
+// IsSorted return a bool
+func IsSorted(items SortInterface) bool {
+	for i := 1; i < items.Len(); i++ {
+		if items.Less(i, i-1) {
+			return false
+		}
+	}
+	return true
+}
+
 // Selection ...
 type Selection struct{}
 
