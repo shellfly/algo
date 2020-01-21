@@ -28,22 +28,17 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 
 	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
+	words := stdin.ReadAllStrings()
 	queue := algo.NewQueue()
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		line := scanner.Text()
-		for _, word := range strings.Split(line, " ") {
-			queue.Enqueue(word)
-		}
+	for _, word := range words {
+		queue.Enqueue(word)
 	}
 
 	fmt.Println("size of queue = ", queue.Size())

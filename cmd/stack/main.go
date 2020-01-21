@@ -28,22 +28,17 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	"strings"
 
 	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
+	words := stdin.ReadAllStrings()
 	stack := algo.NewStack()
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		line := scanner.Text()
-		for _, word := range strings.Split(line, " ") {
-			stack.Push(word)
-		}
+	for _, word := range words {
+		stack.Push(word)
 	}
 
 	fmt.Println("size of stack = ", stack.Size())
