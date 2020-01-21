@@ -33,7 +33,7 @@ import (
 
 func main() {
 	items := stdin.ReadAllStrings()
-	algo.Shell{}.Sort(algo.StringSlice(items))
+	algo.ShellSort(algo.StringSlice(items))
 	fmt.Println(items)
 
 }

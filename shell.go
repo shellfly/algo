@@ -1,10 +1,7 @@
 package algo
 
-// Shell ...
-type Shell struct{}
-
-// Sort ...
-func (Shell) Sort(items SortInterface) {
+// ShellSort ...
+func ShellSort(items SortInterface) {
 	N := items.Len()
 	h := 1
 	for ; h < N/3; h = 3*h + 1 {
