@@ -13,8 +13,8 @@ Try to keep the interface and variable name consistent with the original book wh
 
 ## Note
 
-Unlike Java or Python which you can put `main` function in a file directly. In go the `main` function has to be in the `main` package and it's conventional to put it in the **cmd** directory.
-To test each algorithm/data structure, instead of running the file directly, you have to run the file under **cmd** directory.
+Unlike Java or Python which you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and it's conventional to put it in the **cmd** directory.
+To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory.
 
 ## Index
 

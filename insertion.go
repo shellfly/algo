@@ -1,0 +1,14 @@
+package algo
+
+// Insertion ...
+type Insertion struct{}
+
+// Sort ...
+func (Insertion) Sort(items SortInterface) {
+	length := items.Len()
+	for i := 1; i < length; i++ {
+		for j := i; j > 0 && items.Less(j, j-1); j-- {
+			items.Swap(j, j-1)
+		}
+	}
+}
