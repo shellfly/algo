@@ -1,13 +1,18 @@
 package algo
 
-import "math/rand"
+import (
+	"math/rand"
+)
 
 func partition(items SortInterface, lo, hi int) int {
-	i, j := lo, hi
-	for i < j {
-		for ; i <= hi && items.Less(i, lo); i++ {
+	i, j := lo+1, hi
+	for {
+		for ; i < hi && items.Less(i, lo); i++ {
 		}
 		for ; j > lo && items.Less(lo, j); j-- {
+		}
+		if i >= j {
+			break
 		}
 		items.Swap(i, j)
 	}
@@ -21,7 +26,7 @@ func quicksort(items SortInterface, lo, hi int) {
 	}
 
 	j := partition(items, lo, hi)
-	quicksort(items, lo, j)
+	quicksort(items, lo, j-1)
 	quicksort(items, j+1, hi)
 }
 

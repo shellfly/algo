@@ -6,7 +6,7 @@ Sorts a sequence of strings from standard input using selection sort.
 
 S O R T E X A M P L E
 
-% go run cmd/quick/main.go < tiny.txt
+% go run cmd/quick3way/main.go < tiny.txt
 
 A E E L M O P R S T X                 [ one string per line ]
 
@@ -17,7 +17,7 @@ A E E L M O P R S T X                 [ one string per line ]
 bed bug dad yes zoo ... all bad yet
 
 
-% go run cmd/quick/main.go < words3.txt
+% go run cmd/quick3way/main.go < words3.txt
 
 all bad bed bug dad ... yes yet zoo    [ one string per line ]
 */
@@ -33,6 +33,6 @@ import (
 
 func main() {
 	items := stdin.ReadAllStrings()
-	algo.QuickSort(algo.StringSlice(items))
+	algo.QuickSort3way(algo.StringSlice(items))
 	fmt.Println(items)
 }
