@@ -1,18 +1,17 @@
 package algo
 
 import (
-	"fmt"
 	"math/rand"
 )
 
 func partition3way(items SortInterface, lo, hi int) (int, int) {
 	lt, i, gt := lo, lo+1, hi
 	for i <= gt {
-		if items.Less(i, lo) {
+		if items.Less(i, lt) {
 			items.Swap(i, lt)
 			i++
 			lt++
-		} else if items.Less(lo, i) {
+		} else if items.Less(lt, i) {
 			items.Swap(i, gt)
 			gt--
 		} else {
@@ -29,7 +28,6 @@ func quicksort3way(items SortInterface, lo, hi int) {
 	}
 
 	lt, gt := partition3way(items, lo, hi)
-	fmt.Println(items, lt, gt)
 	quicksort3way(items, lo, lt-1)
 	quicksort3way(items, gt+1, hi)
 }

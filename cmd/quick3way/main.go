@@ -33,6 +33,12 @@ import (
 
 func main() {
 	items := stdin.ReadAllStrings()
+	fmt.Println("items: ", items)
 	algo.QuickSort3way(algo.StringSlice(items))
-	fmt.Println(items)
+	if !algo.IsSorted(algo.StringSlice(items)) {
+		fmt.Println("Not Sorted")
+		fmt.Println(items)
+	} else {
+		fmt.Println("sorted items: ", items)
+	}
 }

@@ -34,6 +34,10 @@ import (
 func main() {
 	items := stdin.ReadAllStrings()
 	algo.InsertionSort(algo.StringSlice(items))
-	fmt.Println(items)
-
+	if !algo.IsSorted(algo.StringSlice(items)) {
+		fmt.Println("Not Sorted")
+		fmt.Println(items)
+	} else {
+		fmt.Println("sorted items: ", items)
+	}
 }

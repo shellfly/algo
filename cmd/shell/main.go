@@ -35,6 +35,10 @@ func main() {
 	items := stdin.ReadAllStrings()
 	fmt.Println("items: ", items)
 	algo.ShellSort(algo.StringSlice(items))
-	fmt.Println("sorted items: ", items, algo.IsSorted(algo.StringSlice(items)))
-
+	if !algo.IsSorted(algo.StringSlice(items)) {
+		fmt.Println("Not Sorted")
+		fmt.Println(items)
+	} else {
+		fmt.Println("sorted items: ", items)
+	}
 }
