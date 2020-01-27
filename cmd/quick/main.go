@@ -33,6 +33,7 @@ import (
 
 func main() {
 	items := stdin.ReadAllStrings()
+	fmt.Println("items: ", items)
 	algo.QuickSort(algo.StringSlice(items))
-	fmt.Println(items)
+	fmt.Println("sorted items: ", items, algo.IsSorted(algo.StringSlice(items)))
 }

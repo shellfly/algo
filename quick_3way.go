@@ -1,9 +1,12 @@
 package algo
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func partition3way(items SortInterface, lo, hi int) (int, int) {
-	i, lt, gt := lo+1, lo+1, hi
+	lt, i, gt := lo, lo+1, hi
 	for i <= gt {
 		if items.Less(i, lo) {
 			items.Swap(i, lt)
@@ -26,8 +29,9 @@ func quicksort3way(items SortInterface, lo, hi int) {
 	}
 
 	lt, gt := partition3way(items, lo, hi)
-	quicksort(items, lo, lt-1)
-	quicksort(items, gt+1, hi)
+	fmt.Println(items, lt, gt)
+	quicksort3way(items, lo, lt-1)
+	quicksort3way(items, gt+1, hi)
 }
 
 // QuickSort3way ...

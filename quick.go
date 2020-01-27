@@ -5,11 +5,19 @@ import (
 )
 
 func partition(items SortInterface, lo, hi int) int {
-	i, j := lo+1, hi
+	i, j := lo, hi+1
 	for {
-		for ; i < hi && items.Less(i, lo); i++ {
+		for {
+			i++
+			if !(items.Less(i, lo) && i < hi) {
+				break
+			}
 		}
-		for ; j > lo && items.Less(lo, j); j-- {
+		for {
+			j--
+			if !(items.Less(lo, j) && j > lo) {
+				break
+			}
 		}
 		if i >= j {
 			break
