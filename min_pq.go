@@ -28,7 +28,7 @@ func (mq *MinPQ) swim(k int) {
 }
 
 func (mq *MinPQ) sink(k int) {
-	for 2*k < mq.n {
+	for 2*k <= mq.n {
 		j := k * 2
 		if j < mq.n && mq.less(j+1, j) {
 			j++

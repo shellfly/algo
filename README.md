@@ -13,8 +13,8 @@ Try to keep the interface and variable name consistent with the original book wh
 
 ## Note
 
-Unlike Java or Python which you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and it's conventional to put it in the **cmd** directory.
-To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory.
+Unlike Java or Python where you put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
+To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
 
 ## Index
 
@@ -34,9 +34,9 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [Quick](quick.go)
   * [Quick3Way](quick_3way.go)
   * [MaxPQ](max_pq.go)
-  * [TopM](top_m.go)
+  * [TopM](cmd/topm/main.go)
   * [IndexMinPQ](index_min_pq.go)
-  * [Multiway](multiway.go)
+  * [Multiway](cmd/multiway/main.go)
   * [Heap](heap.go)
 
 * 3 SEARCHING

@@ -29,7 +29,7 @@ func (mq *MaxPQ) swim(k int) {
 }
 
 func (mq *MaxPQ) sink(k int) {
-	for k < mq.n {
+	for 2*k <= mq.n {
 		j := k * 2
 		if j < mq.n && mq.less(j, j+1) {
 			j++
