@@ -1,12 +1,12 @@
 /*
-Sorts a sequence of strings from standard input using merge sort.
+Sorts a sequence of strings from standard input using heap sort.
 
 
 % more tiny.txt
 
 S O R T E X A M P L E
 
-% go run cmd/merge/main.go < tiny.txt
+% go run cmd/heap/main.go < tiny.txt
 
 A E E L M O P R S T X                 [ one string per line ]
 
@@ -17,7 +17,7 @@ A E E L M O P R S T X                 [ one string per line ]
 bed bug dad yes zoo ... all bad yet
 
 
-% go run cmd/merge/main.go < words3.txt
+% go run cmd/heap/main.go < words3.txt
 
 all bad bed bug dad ... yes yet zoo    [ one string per line ]
 */
@@ -33,7 +33,7 @@ import (
 
 func main() {
 	items := stdin.ReadAllStrings()
-	algo.MergeSort(algo.StringSlice(items))
+	algo.HeapSort(algo.StringSlice(items))
 	if !algo.IsSorted(algo.StringSlice(items)) {
 		fmt.Println("Not Sorted")
 		fmt.Println(items)

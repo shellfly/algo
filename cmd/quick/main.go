@@ -1,5 +1,5 @@
 /*
-Sorts a sequence of strings from standard input using selection sort.
+Sorts a sequence of strings from standard input using quick sort.
 
 
 % more tiny.txt
