@@ -9,12 +9,17 @@ The official Java source code is <a href="https://github.com/kevin-wayne/algs4">
 
 Make a Golang implementation of the library so that a Go programmer can learn this book easily.
 
-Try to keep the interface and variable name consistent with the original book while not violating Golang coding standards.
+Try to keep the interface and variable name consistent with the original book while writing idiomatic go code.
 
 ## Note
 
-Unlike Java or Python where you put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
-To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
+1. `main` function
+
+    Unlike Java or Python where you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
+    To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
+2. Generics
+    
+    Go doesn't support generics like Java and it's not a dynamic type language like Python. so some code is slightly different. e.g. There is a `GetInt` besides `Get` in a symbol table.
 
 ## Index
 
@@ -41,7 +46,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
 
 * 3 SEARCHING
 
-  * [FrequencyCounter](frequency_counter.go)
+  * [FrequencyCounter](cmd/frequency-counter/main.go)
   * [SequentialSearchST](sequential_search.go)
   * [BinarySearchST](binary_search_st.go)
   * [BST](bst.go)
