@@ -13,13 +13,8 @@ Try to keep the interface and variable name consistent with the original book wh
 
 ## Note
 
-1. `main` function
-
-    Unlike Java or Python where you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
-    To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
-2. Generics
-    
-    Go doesn't support generics like Java and it's not a dynamic type language like Python. so some code is slightly different. e.g. There is a `GetInt` besides `Get` in a symbol table.
+Unlike Java or Python where you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
+To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
 
 ## Index
 
