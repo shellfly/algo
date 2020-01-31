@@ -1,6 +1,8 @@
 package algo
 
-// Key is an interface to key in ST
+const initCapacity = 2
+
+// Key is an interface of the key in ST
 type Key interface {
 	compareTo(interface{}) int
 }
@@ -25,11 +27,28 @@ type BinarySearchST struct {
 	n    int
 }
 
+// NewBinarySearchST returns an bst with init capcity
+func NewBinarySearchST() *BinarySearchST {
+	return &BinarySearchST{
+		keys: make([]Key, initCapacity),
+		vals: make([]interface{}, initCapacity),
+	}
+}
+
+func (st *BinarySearchST) resize(capacity int) {
+	newKeys := make([]Key, capacity)
+	copy(newKeys, st.keys)
+	st.keys = newKeys
+
+	newVals := make([]interface{}, capacity)
+	copy(newVals, st.vals)
+	st.vals = newVals
+}
+
 func (st BinarySearchST) rank(key Key) int {
 	lo, hi := 0, st.n-1
 	for lo <= hi {
 		mid := lo + (hi-lo)/2
-
 		cmp := key.compareTo(st.keys[mid])
 
 		if cmp < 0 {
@@ -50,17 +69,16 @@ func (st *BinarySearchST) Put(key Key, val interface{}) {
 		st.vals[i] = val
 		return
 	}
-	if st.n == 0 {
-		st.keys = append(st.keys, key)
-		st.vals = append(st.vals, val)
-	} else {
-		st.keys = append(st.keys, st.keys[st.n-1])
-		st.vals = append(st.vals, st.vals[st.n-1])
-		for j := st.n - 1; j > i; j-- {
-			st.keys[j], st.vals[j] = st.keys[j-1], st.vals[j-1]
-		}
-		st.keys[i], st.vals[i] = key, val
+
+	if st.n == len(st.keys) {
+		st.resize(2 * len(st.keys))
 	}
+
+	for j := st.n; j > i; j-- {
+		st.keys[j], st.vals[j] = st.keys[j-1], st.vals[j-1]
+	}
+	st.keys[i], st.vals[i] = key, val
+
 	st.n++
 }
 
@@ -101,5 +119,5 @@ func (st BinarySearchST) IsEmpty() bool {
 
 // Keys ...
 func (st *BinarySearchST) Keys() []Key {
-	return st.keys
+	return st.keys[:st.n]
 }
