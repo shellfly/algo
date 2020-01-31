@@ -35,7 +35,7 @@ import (
 
 func main() {
 	minLen, _ := strconv.Atoi(os.Args[1])
-	st := new(algo.BinarySearchST)
+	st := algo.NewBinarySearchST()
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		word := stdin.ReadString()
