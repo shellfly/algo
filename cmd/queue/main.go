@@ -42,7 +42,7 @@ func main() {
 	}
 
 	fmt.Println("size of queue = ", queue.Size())
-	for item := queue.Dequeue(); !queue.IsEmpty(); item = queue.Dequeue() {
+	for _, item := range queue.Slice() {
 		fmt.Println(item)
 	}
 }

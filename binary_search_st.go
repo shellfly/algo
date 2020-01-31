@@ -2,27 +2,9 @@ package algo
 
 const initCapacity = 2
 
-// Key is an interface of the key in ST
-type Key interface {
-	compareTo(interface{}) int
-}
-
-// StringKey implements Key
-type StringKey string
-
-// CompareTo ...
-func (k StringKey) compareTo(other interface{}) int {
-	if k < other.(StringKey) {
-		return -1
-	} else if k > other.(StringKey) {
-		return 1
-	}
-	return 0
-}
-
 // BinarySearchST is symbol table
 type BinarySearchST struct {
-	keys []Key
+	keys []Key // defined in st.go
 	vals []interface{}
 	n    int
 }

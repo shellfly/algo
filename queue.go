@@ -52,3 +52,11 @@ func (q *Queue) Dequeue() (item interface{}) {
 func (q Queue) Size() int {
 	return q.n
 }
+
+// Slice ...
+func (q Queue) Slice() (items []interface{}) {
+	for x := q.first; x != nil; x = x.Next {
+		items = append(items, x.Item)
+	}
+	return
+}
