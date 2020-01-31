@@ -1,27 +1,6 @@
 package algo
 
 const initCapacity = 2
-<<<<<<< HEAD
-=======
-
-// Key is an interface to key in ST
-type Key interface {
-	compareTo(interface{}) int
-}
-
-// StringKey implements Key
-type StringKey string
-
-// CompareTo ...
-func (k StringKey) compareTo(other interface{}) int {
-	if k < other.(StringKey) {
-		return -1
-	} else if k > other.(StringKey) {
-		return 1
-	}
-	return 0
-}
->>>>>>> 7a69fd9f928b085bd097fba10642f26d62d4dc73
 
 // BinarySearchST is symbol table
 type BinarySearchST struct {
@@ -46,10 +25,6 @@ func (st *BinarySearchST) resize(capacity int) {
 	newVals := make([]interface{}, capacity)
 	copy(newVals, st.vals)
 	st.vals = newVals
-<<<<<<< HEAD
-=======
-
->>>>>>> 7a69fd9f928b085bd097fba10642f26d62d4dc73
 }
 
 func (st BinarySearchST) rank(key Key) int {
@@ -79,19 +54,11 @@ func (st *BinarySearchST) Put(key Key, val interface{}) {
 
 	if st.n == len(st.keys) {
 		st.resize(2 * len(st.keys))
-<<<<<<< HEAD
 	}
 
 	for j := st.n; j > i; j-- {
 		st.keys[j], st.vals[j] = st.keys[j-1], st.vals[j-1]
 	}
-=======
-	}
-
-	for j := st.n; j > i; j-- {
-		st.keys[j], st.vals[j] = st.keys[j-1], st.vals[j-1]
-	}
->>>>>>> 7a69fd9f928b085bd097fba10642f26d62d4dc73
 	st.keys[i], st.vals[i] = key, val
 
 	st.n++
