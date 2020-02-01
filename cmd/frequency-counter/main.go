@@ -35,7 +35,7 @@ import (
 
 func main() {
 	minLen, _ := strconv.Atoi(os.Args[1])
-	//st := new(algo.SequentialSearchST)
+	//st := algo.NewSequentialSearchST()
 	//st := algo.NewBinarySearchST()
 	st := algo.NewBST()
 	stdin := stdin.NewStdIn()
@@ -52,12 +52,12 @@ func main() {
 		}
 	}
 
-	maxKey := algo.StringKey("")
-	st.Put(maxKey, 0)
+	max := algo.StringKey("")
+	st.Put(max, 0)
 	for _, word := range st.Keys() {
-		if st.GetInt(word) > st.GetInt(maxKey) {
-			maxKey = word.(algo.StringKey)
+		if st.GetInt(word) > st.GetInt(max) {
+			max = word.(algo.StringKey)
 		}
 	}
-	fmt.Printf("%s %d", maxKey, st.GetInt(maxKey))
+	fmt.Printf("%s %d", max, st.GetInt(max))
 }

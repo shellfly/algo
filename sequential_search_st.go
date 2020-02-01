@@ -11,6 +11,11 @@ type SequentialSearchST struct {
 	n     int
 }
 
+// NewSequentialSearchST ...
+func NewSequentialSearchST() *SequentialSearchST {
+	return &SequentialSearchST{}
+}
+
 // Put add new key value pair into the st
 func (st *SequentialSearchST) Put(key, val interface{}) {
 	for x := st.first; x != nil; x = x.next {
