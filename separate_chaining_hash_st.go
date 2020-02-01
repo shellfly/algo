@@ -13,7 +13,7 @@ func (s StringHashKey) hash() int {
 	R := 31
 	hash := 0
 	for _, runeValue := range s {
-		hash = (R*hash + int(runeValue)) % 97
+		hash = R*hash + int(runeValue)
 	}
 	return hash
 }

@@ -10,7 +10,7 @@ type LinearProbingHashST struct {
 
 // NewLinearProbingHashST ...
 func NewLinearProbingHashST(capacity int) *LinearProbingHashST {
-	initCapacity := 16
+	initCapacity := 4
 	if capacity == 0 {
 		capacity = initCapacity
 	}
