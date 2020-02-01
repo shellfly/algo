@@ -39,7 +39,8 @@ func main() {
 	//st := algo.NewBinarySearchST()
 	//st := algo.NewBST()
 	// st := algo.NewRedBlackBST()
-	st := algo.NewSeparateChainHashST(0)
+	//st := algo.NewSeparateChainHashST(0)
+	st := algo.NewLinearProbingHashST(0)
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		word := stdin.ReadString()
