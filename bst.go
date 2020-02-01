@@ -227,7 +227,7 @@ func (st *BST) size(x *BSTNode) int {
 	if x == nil {
 		return 0
 	}
-	return st.size(x.left) + st.size(x.right) + 1
+	return x.n
 }
 
 // Size ...

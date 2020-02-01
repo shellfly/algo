@@ -37,7 +37,8 @@ func main() {
 	minLen, _ := strconv.Atoi(os.Args[1])
 	//st := algo.NewSequentialSearchST()
 	//st := algo.NewBinarySearchST()
-	st := algo.NewBST()
+	//st := algo.NewBST()
+	st := algo.NewRedBlackBST()
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		word := stdin.ReadString()
