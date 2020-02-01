@@ -38,14 +38,15 @@ func main() {
 	//st := algo.NewSequentialSearchST()
 	//st := algo.NewBinarySearchST()
 	//st := algo.NewBST()
-	st := algo.NewRedBlackBST()
+	// st := algo.NewRedBlackBST()
+	st := algo.NewSeparateChainHashST(0)
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		word := stdin.ReadString()
 		if len(word) < minLen {
 			continue
 		}
-		wordKey := algo.StringKey(word)
+		wordKey := algo.StringHashKey(word)
 		if !st.Contains(wordKey) {
 			st.Put(wordKey, 1)
 		} else {
@@ -53,11 +54,11 @@ func main() {
 		}
 	}
 
-	max := algo.StringKey("")
+	max := algo.StringHashKey("")
 	st.Put(max, 0)
 	for _, word := range st.Keys() {
-		if st.GetInt(word) > st.GetInt(max) {
-			max = word.(algo.StringKey)
+		if st.GetInt(word.(algo.StringHashKey)) > st.GetInt(max) {
+			max = word.(algo.StringHashKey)
 		}
 	}
 	fmt.Printf("%s %d", max, st.GetInt(max))
