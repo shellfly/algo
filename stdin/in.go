@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 // In wraps a scanner using ScanWords as split function
@@ -31,4 +32,11 @@ func (in In) IsEmpty() bool {
 // ReadString return next string by delimiter of ' '
 func (in In) ReadString() string {
 	return in.scanner.Text()
+}
+
+// ReadInt return next integer by delimiter of ' '
+func (in In) ReadInt() int {
+	in.scanner.Scan()
+	v, _ := strconv.Atoi(in.scanner.Text())
+	return v
 }
