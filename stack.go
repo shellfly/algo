@@ -38,3 +38,11 @@ func (s *Stack) Pop() (item interface{}) {
 func (s Stack) Size() int {
 	return s.n
 }
+
+// Slice ...
+func (s Stack) Slice() (items []interface{}) {
+	for !s.IsEmpty() {
+		items = append(items, s.Pop())
+	}
+	return
+}

@@ -21,7 +21,6 @@ func NewGraph(in *stdin.In) *Graph {
 	}
 	g := &Graph{v: v, e: 0, adj: adj}
 	e := in.ReadInt()
-	fmt.Println(v, e)
 	for i := 0; i < e; i++ {
 		v, w := in.ReadInt(), in.ReadInt()
 		g.AddEdge(v, w)
