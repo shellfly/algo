@@ -50,7 +50,7 @@ import (
 )
 
 func main() {
-	sg := algo.NewSymbolGraph(os.Args[1])
+	sg := algo.NewSymbolGraph(os.Args[1], os.Args[2])
 	g := sg.G()
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {

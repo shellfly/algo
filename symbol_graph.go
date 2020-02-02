@@ -14,11 +14,11 @@ type SymbolGraph struct {
 }
 
 // NewSymbolGraph ...
-func NewSymbolGraph(filename string) *SymbolGraph {
+func NewSymbolGraph(filename, sp string) *SymbolGraph {
 	st := NewST()
 	in := stdin.NewInByLine(filename)
 	for !in.IsEmpty() {
-		a := strings.Split(in.ReadString(), " ")
+		a := strings.Split(in.ReadString(), sp)
 		for i := 0; i < len(a); i++ {
 			if !st.Contains(a[i]) {
 				st.Put(a[i], st.Size())

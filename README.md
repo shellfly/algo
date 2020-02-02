@@ -57,7 +57,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [BreadthFirstPaths](breadth_first_paths.go)
   * [CC](cc.go)
   * [SymbolGraph](symbol_graph.go)
-  * [DegreesOfSeparation](degrees_of_separation.go)
+  * [DegreesOfSeparation](cmd/degrees-of-separation/main.go)
   * [Digraph](digraph.go)
   * [DirectedDFS](directed_dfs.go)
   * [DirectedCycle](directed_cycle.go)
