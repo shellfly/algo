@@ -12,6 +12,17 @@ type In struct {
 	scanner *bufio.Scanner
 }
 
+// NewInByLine return a pointer of In
+func NewInByLine(path string) *In {
+	inFile, err := os.Open(path)
+	if err != nil {
+		fmt.Println(err)
+		panic("Can not open file: " + path)
+	}
+	scanner := bufio.NewScanner(inFile)
+	return &In{scanner}
+}
+
 // NewIn return a pointer of In
 func NewIn(path string) *In {
 	inFile, err := os.Open(path)
@@ -31,6 +42,7 @@ func (in In) IsEmpty() bool {
 
 // ReadString return next string by delimiter of ' '
 func (in In) ReadString() string {
+
 	return in.scanner.Text()
 }
 

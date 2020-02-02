@@ -28,6 +28,15 @@ func NewGraph(in *stdin.In) *Graph {
 	return g
 }
 
+// NewGraphV ...
+func NewGraphV(v int) *Graph {
+	adj := make([]*Bag, v)
+	for i := 0; i < v; i++ {
+		adj[i] = NewBag()
+	}
+	return &Graph{v: v, e: 0, adj: adj}
+}
+
 // V ...
 func (g *Graph) V() int {
 	return g.v
