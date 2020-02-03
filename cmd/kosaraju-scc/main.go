@@ -1,6 +1,5 @@
 /******************************************************************************
  *  Execution:    go run cmd/kosaraju-scc/main.go filename.txt
- *  Dependencies: Digraph.java TransitiveClosure.java StdOut.java In.java
  *  Data files:   https://algs4.cs.princeton.edu/42digraph/tinyDG.txt
  *                https://algs4.cs.princeton.edu/42digraph/mediumDG.txt
  *                https://algs4.cs.princeton.edu/42digraph/largeDG.txt
