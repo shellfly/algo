@@ -50,18 +50,22 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [LinearProbingHashST](linear_probing_hash_st.go)
 
 * 4 GRAPHS
-
-  * [Graph](graph.go)
-  * [DepthFirstSearch](depth_first_search.go)
-  * [DepthFirstPaths](depth_first_paths.go)
-  * [BreadthFirstPaths](breadth_first_paths.go)
-  * [CC](cc.go)
-  * [Cycle](cycle.go)
-  * [SymbolGraph](symbol_graph.go)
-  * [DegreesOfSeparation](cmd/degrees-of-separation/main.go)
-  * [Digraph](digraph.go)
-  * [DirectedDFS](directed_dfs.go)
-  * [DirectedCycle](directed_cycle.go)
+  * Graph
+    * [Graph](graph.go)
+    * [DepthFirstSearch](depth_first_search.go)
+    * [DepthFirstPaths](depth_first_paths.go)
+    * [BreadthFirstPaths](breadth_first_paths.go)
+    * [CC](cc.go)
+    * [Cycle](cycle.go)
+    * [SymbolGraph](symbol_graph.go)
+    * [DegreesOfSeparation](cmd/degrees-of-separation/main.go)
+  * Digraph
+    * [Digraph](digraph.go)
+    * [SymbolDigraph](symbol_digraph.go)
+    * [DirectedDFS](directed_dfs.go)
+    * [DirectedCycle](directed_cycle.go)
+    * [DepthFirstOrder](depth_first_order.go)
+    * [Topological](topological.go)
 
 * 5 STRING
 

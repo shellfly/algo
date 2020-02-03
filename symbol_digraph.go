@@ -6,15 +6,15 @@ import (
 	"github.com/shellfly/algo/stdin"
 )
 
-// SymbolGraph ...
-type SymbolGraph struct {
+// SymbolDigraph ...
+type SymbolDigraph struct {
 	st   ST
 	keys []string
-	g    *Graph
+	g    *Digraph
 }
 
-// NewSymbolGraph ...
-func NewSymbolGraph(filename, sp string) *SymbolGraph {
+// NewSymbolDigraph ...
+func NewSymbolDigraph(filename, sp string) *SymbolDigraph {
 	st := NewST()
 	in := stdin.NewInByLine(filename)
 	for !in.IsEmpty() {
@@ -31,7 +31,7 @@ func NewSymbolGraph(filename, sp string) *SymbolGraph {
 		keys[st.Get(name)] = name
 	}
 
-	g := NewGraphV(st.Size())
+	g := NewDigraphV(st.Size())
 	in = stdin.NewInByLine(filename)
 	for !in.IsEmpty() {
 		a := strings.Split(in.ReadString(), sp)
@@ -40,25 +40,25 @@ func NewSymbolGraph(filename, sp string) *SymbolGraph {
 			g.AddEdge(v, st.Get(a[i]))
 		}
 	}
-	return &SymbolGraph{st, keys, g}
+	return &SymbolDigraph{st, keys, g}
 }
 
 // Contains ...
-func (s *SymbolGraph) Contains(key string) bool {
+func (s *SymbolDigraph) Contains(key string) bool {
 	return s.st.Contains(key)
 }
 
 // Index ...
-func (s *SymbolGraph) Index(key string) int {
+func (s *SymbolDigraph) Index(key string) int {
 	return s.st.Get(key)
 }
 
 // Name ...
-func (s *SymbolGraph) Name(v int) string {
+func (s *SymbolDigraph) Name(v int) string {
 	return s.keys[v]
 }
 
 // G ...
-func (s *SymbolGraph) G() *Graph {
+func (s *SymbolDigraph) G() *Digraph {
 	return s.g
 }
