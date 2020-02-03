@@ -66,6 +66,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [DirectedCycle](directed_cycle.go)
     * [DepthFirstOrder](depth_first_order.go)
     * [Topological](topological.go)
+    * [KosarajuSCC](kosaraju_scc.go)
 
 * 5 STRING
 

@@ -67,7 +67,7 @@ func (g *Digraph) Reverse() *Digraph {
 	r := NewDigraphV(g.v)
 	for v := 0; v < g.v; v++ {
 		for _, w := range g.Adj(v) {
-			r.AddEdge(w, w)
+			r.AddEdge(w, v)
 		}
 	}
 	return r
