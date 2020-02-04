@@ -28,7 +28,7 @@ import (
 
 func main() {
 	m, _ := strconv.Atoi(os.Args[1])
-	pq := algo.NewMinPQ(m + 1)
+	pq := algo.NewMinPQ()
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		line := scanner.Text()

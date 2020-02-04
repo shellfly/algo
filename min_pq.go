@@ -1,19 +1,38 @@
 package algo
 
+// PQItem is an interface of the item in PQ
+type PQItem interface {
+	CompareTo(interface{}) int
+}
+
 // MinPQ is a priority queue
 type MinPQ struct {
 	n  int
-	pq []Transaction
+	pq []PQItem
 }
 
 // NewMinPQ ...
-func NewMinPQ(n int) *MinPQ {
-	pq := make([]Transaction, n+1)
+func NewMinPQ() *MinPQ {
+	pq := make([]PQItem, 1)
 	return &MinPQ{pq: pq}
 }
 
+// NewMinPQN ...
+func NewMinPQN(n int) *MinPQ {
+	pq := make([]PQItem, n)
+	return &MinPQ{pq: pq}
+}
+
+
+func (mq *MinPQ) resize(capacity int) {
+	pq := make([]PQItem, capacity)
+	copy(pq, mq.pq)
+	mq.pq = pq
+}
+
 func (mq MinPQ) less(i, j int) bool {
-	return mq.pq[i].Amount < mq.pq[j].Amount
+	cmp := mq.pq[i].CompareTo(mq.pq[j])
+	return cmp < 0
 }
 
 func (mq *MinPQ) exch(i, j int) {
@@ -42,14 +61,18 @@ func (mq *MinPQ) sink(k int) {
 }
 
 // Insert ...
-func (mq *MinPQ) Insert(t Transaction) {
+func (mq *MinPQ) Insert(t PQItem) {
+	if (mq.n == len(mq.pq) - 1){
+		 mq.resize(2 * len(mq.pq))
+	}
+
 	mq.n++
 	mq.pq[mq.n] = t
 	mq.swim(mq.n)
 }
 
 // DelMin ...
-func (mq *MinPQ) DelMin() Transaction {
+func (mq *MinPQ) DelMin() PQItem {
 	m := mq.pq[1]
 	mq.exch(1, mq.n)
 	mq.n--

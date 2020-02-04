@@ -24,3 +24,15 @@ func NewTransaction(line string) *Transaction {
 func (t Transaction) String() string {
 	return fmt.Sprintf("%15s %10s %-10.2f", t.Who, t.When, t.Amount)
 }
+
+// CompareTo implements PQItem interface
+func (t Transaction) CompareTo(other interface{})int{
+	tt := other.(Transaction)
+	if t.Amount > tt.Amount{
+		return 1
+	} else if t.Amount < tt.Amount{
+		return -1
+	} else {
+		return 0
+	}
+}

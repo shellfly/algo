@@ -52,3 +52,10 @@ func (in In) ReadInt() int {
 	v, _ := strconv.Atoi(in.scanner.Text())
 	return v
 }
+
+// ReadFloat32 return next integer by delimiter of ' '
+func (in In) ReadFloat32() float32 {
+	in.scanner.Scan()
+	v, _ := strconv.ParseFloat(in.scanner.Text(), 10)
+	return float32(v)
+}

@@ -67,6 +67,9 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [DepthFirstOrder](depth_first_order.go)
     * [Topological](topological.go)
     * [KosarajuSCC](kosaraju_scc.go)
+  * MST
+    * [EdgeWeightedGraph](edge_weighted_graph.go)
+    * [LazyPrimMST](lazy_prim_mst.go)
 
 * 5 STRING
 
