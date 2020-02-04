@@ -1,7 +1,10 @@
 package algo
 
+import "fmt"
+
 // PQItem is an interface of the item in PQ
 type PQItem interface {
+	fmt.Stringer
 	CompareTo(interface{}) int
 }
 
@@ -22,7 +25,6 @@ func NewMinPQN(n int) *MinPQ {
 	pq := make([]PQItem, n)
 	return &MinPQ{pq: pq}
 }
-
 
 func (mq *MinPQ) resize(capacity int) {
 	pq := make([]PQItem, capacity)
@@ -62,8 +64,8 @@ func (mq *MinPQ) sink(k int) {
 
 // Insert ...
 func (mq *MinPQ) Insert(t PQItem) {
-	if (mq.n == len(mq.pq) - 1){
-		 mq.resize(2 * len(mq.pq))
+	if mq.n == len(mq.pq)-1 {
+		mq.resize(2 * len(mq.pq))
 	}
 
 	mq.n++

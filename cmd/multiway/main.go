@@ -31,20 +31,36 @@ import (
 	"github.com/shellfly/algo/stdin"
 )
 
+type StringPQItem string
+
+func (s StringPQItem) CompareTo(other interface{}) int {
+	ss := other.(StringPQItem)
+	if s < ss {
+		return -1
+	} else if s > ss {
+		return 1
+	} else {
+		return 0
+	}
+}
+func (s StringPQItem) String() string {
+	return string(s)
+}
+
 func merge(streams []*stdin.In) {
 	n := len(streams)
 	pq := algo.NewIndexMinPQ(n)
 	for i := 0; i < n; i++ {
 		if !streams[i].IsEmpty() {
 			str := streams[i].ReadString()
-			pq.Insert(i, str)
+			pq.Insert(i, StringPQItem(str))
 		}
 	}
 	for !pq.IsEmpty() {
-		fmt.Print(pq.Min() + " ")
+		fmt.Print(pq.Min(), " ")
 		i := pq.DelMin()
 		if !streams[i].IsEmpty() {
-			pq.Insert(i, streams[i].ReadString())
+			pq.Insert(i, StringPQItem(streams[i].ReadString()))
 		}
 	}
 }

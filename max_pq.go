@@ -3,18 +3,19 @@ package algo
 // MaxPQ is a priority queue
 type MaxPQ struct {
 	n  int
-	pq []Transaction
+	pq []PQItem
 }
 
 // NewMaxPQ ...
 func NewMaxPQ(n int) *MaxPQ {
 	// index 0 is not used in PQ
-	pq := make([]Transaction, n+1)
+	pq := make([]PQItem, n+1)
 	return &MaxPQ{pq: pq}
 }
 
 func (mq MaxPQ) less(i, j int) bool {
-	return mq.pq[i].Amount < mq.pq[j].Amount
+	cmp := mq.pq[i].CompareTo(mq.pq[j])
+	return cmp < 0
 }
 
 func (mq *MaxPQ) exch(i, j int) {
@@ -43,14 +44,14 @@ func (mq *MaxPQ) sink(k int) {
 }
 
 // Insert ...
-func (mq *MaxPQ) Insert(t Transaction) {
+func (mq *MaxPQ) Insert(t PQItem) {
 	mq.pq = append(mq.pq, t)
 	mq.n++
 	mq.swim(mq.n)
 }
 
 // DelMax ...
-func (mq *MaxPQ) DelMax() Transaction {
+func (mq *MaxPQ) DelMax() PQItem {
 	m := mq.pq[1]
 	mq.exch(1, mq.n)
 	mq.n--

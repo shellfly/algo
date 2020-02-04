@@ -70,6 +70,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * MST
     * [EdgeWeightedGraph](edge_weighted_graph.go)
     * [LazyPrimMST](lazy_prim_mst.go)
+    * [PrimMST](prim_mst.go)
 
 * 5 STRING
 

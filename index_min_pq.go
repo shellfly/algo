@@ -8,7 +8,7 @@ type IndexMinPQ struct {
 	n    int      // number of elements on PQ
 	pq   []int    // binary heap using 1-based indexing
 	qp   []int    // inverse of pq - qp[pq[i]] = pq[qp[i]] = i
-	keys []string //  keys[i] = priority of i
+	keys []PQItem //  keys[i] = priority of i
 }
 
 // NewIndexMinPQ ...
@@ -18,12 +18,13 @@ func NewIndexMinPQ(maxN int) *IndexMinPQ {
 	for i := 0; i < len(qp); i++ {
 		qp[i] = -1
 	}
-	keys := make([]string, maxN)
+	keys := make([]PQItem, maxN)
 	return &IndexMinPQ{maxN, 0, pq, qp, keys}
 }
 
 func (mq IndexMinPQ) less(i, j int) bool {
-	return mq.keys[mq.pq[i]] < mq.keys[mq.pq[j]]
+	cmp := mq.keys[mq.pq[i]].CompareTo(mq.keys[mq.pq[j]])
+	return cmp < 0
 }
 
 func (mq *IndexMinPQ) exch(i, j int) {
@@ -59,7 +60,7 @@ func (mq IndexMinPQ) validateIndex(index int) {
 }
 
 // Insert ...
-func (mq *IndexMinPQ) Insert(i int, key string) {
+func (mq *IndexMinPQ) Insert(i int, key PQItem) {
 	mq.validateIndex(i)
 	if mq.Contains(i) {
 		panic("Index is alreay in the priority queue")
@@ -73,7 +74,7 @@ func (mq *IndexMinPQ) Insert(i int, key string) {
 }
 
 // ChangeKey ...
-func (mq *IndexMinPQ) ChangeKey(i int, key string) {
+func (mq *IndexMinPQ) ChangeKey(i int, key PQItem) {
 	mq.validateIndex(i)
 	if mq.Contains(i) {
 		panic("Index is alreay in the priority queue")
@@ -102,12 +103,26 @@ func (mq *IndexMinPQ) Delete(i int) {
 	mq.n--
 	mq.swim(index)
 	mq.sink(index)
-	mq.keys[i] = ""
+	mq.keys[i] = nil
 	mq.qp[i] = -1
 }
 
+// DecreaseKey ...
+func (mq *IndexMinPQ) DecreaseKey(i int, key PQItem) {
+	mq.validateIndex(i)
+	if !mq.Contains(i) {
+		panic("index not in the queue")
+	}
+	cmp := mq.keys[i].CompareTo(key)
+	if cmp <= 0 {
+		panic("Calling DecreaseKey with wrong value")
+	}
+	mq.keys[i] = key
+	mq.swim(mq.qp[i])
+}
+
 // Min ...
-func (mq *IndexMinPQ) Min() string {
+func (mq *IndexMinPQ) Min() PQItem {
 	return mq.keys[mq.MinIndex()]
 }
 
