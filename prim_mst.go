@@ -64,7 +64,7 @@ func (l *PrimMST) visit(g *EdgeWeightedGraph, v int) {
 		if e.Weight() < l.distTo[w] {
 			l.distTo[w] = e.Weight()
 			l.edgeTo[w] = e
-			if !l.pq.Contains(w) {
+			if l.pq.Contains(w) {
 				l.pq.DecreaseKey(w, FloatPQItem(l.distTo[w]))
 			} else {
 				l.pq.Insert(w, FloatPQItem(l.distTo[w]))
