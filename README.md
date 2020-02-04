@@ -7,7 +7,7 @@ The official Java source code is <a href="https://github.com/kevin-wayne/algs4">
 
 ## Goals
 
-Make a Golang implementation of the library so that a Go programmer can learn this book easily.
+Make a Go implementation of the library so that a Go programmer can follow this book easily or prefer to demonstrate the algorithms using Go.
 
 Try to keep the interface and variable name consistent with the original book while writing idiomatic go code.
 

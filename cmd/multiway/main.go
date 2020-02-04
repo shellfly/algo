@@ -1,6 +1,6 @@
 /******************************************************************************
-*  Compilation:  go run cmd/multiway/main.go
- *  Data files:   https://algs4.cs.princeton.edu/24pq/m1.txt
+*  Execution:  go run cmd/multiway/main.go
+*  Data files:   https://algs4.cs.princeton.edu/24pq/m1.txt
 *                https://algs4.cs.princeton.edu/24pq/m2.txt
 *                https://algs4.cs.princeton.edu/24pq/m3.txt
 *
