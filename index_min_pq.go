@@ -76,8 +76,8 @@ func (mq *IndexMinPQ) Insert(i int, key PQItem) {
 // ChangeKey ...
 func (mq *IndexMinPQ) ChangeKey(i int, key PQItem) {
 	mq.validateIndex(i)
-	if mq.Contains(i) {
-		panic("Index is alreay in the priority queue")
+	if !mq.Contains(i) {
+		panic("Index is not in the priority queue")
 	}
 
 	mq.keys[i] = key

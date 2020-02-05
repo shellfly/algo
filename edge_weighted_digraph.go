@@ -49,7 +49,7 @@ func (g *EdgeWeightedDigraph) E() int {
 
 // AddEdge ...
 func (g *EdgeWeightedDigraph) AddEdge(e *DirectedEdge) {
-	g.adj[e.From()].Add(e.To())
+	g.adj[e.From()].Add(e)
 	g.e++
 }
 

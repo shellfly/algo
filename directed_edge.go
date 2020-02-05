@@ -30,7 +30,7 @@ func (e *DirectedEdge) To() int {
 
 // String ...
 func (e *DirectedEdge) String() string {
-	return fmt.Sprintf("%d-%d %.5f", e.v, e.w, e.weight)
+	return fmt.Sprintf("%d->%d %.5f", e.v, e.w, e.weight)
 }
 
 // CompareTo implements PQItem interface

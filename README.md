@@ -74,6 +74,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [KruskalMST](kruskal_mst.go)
   * Shortest Paths
     * [EdgeWeightedDigraph](edge_weighted_digraph.go)
+    * [DijkstraSP](dijkstra_sp.go)
 
 * 5 STRING
 
