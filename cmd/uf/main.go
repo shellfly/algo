@@ -25,14 +25,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 )
 
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	scanner.Scan()
 	n, _ := strconv.Atoi(scanner.Text())
-	uf := algo.NewUF(n)
+	uf := algs4.NewUF(n)
 	for scanner.Scan() {
 		line := scanner.Text()
 		values := strings.Split(line, " ")

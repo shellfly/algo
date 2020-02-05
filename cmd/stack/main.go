@@ -30,13 +30,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
 	words := stdin.ReadAllStrings()
-	stack := algo.NewStack()
+	stack := algs4.NewStack()
 	for _, word := range words {
 		stack.Push(word)
 	}

@@ -30,13 +30,13 @@ package main
 import (
 	"fmt"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
 	words := stdin.ReadAllStrings()
-	queue := algo.NewQueue()
+	queue := algs4.NewQueue()
 	for _, word := range words {
 		queue.Enqueue(word)
 	}

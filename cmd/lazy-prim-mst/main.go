@@ -42,13 +42,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	g := algo.NewEdgeWeightedGraph(stdin.NewIn(os.Args[1]))
-	mst := algo.NewLazyPrimMST(g)
+	g := algs4.NewEdgeWeightedGraph(stdin.NewIn(os.Args[1]))
+	mst := algs4.NewLazyPrimMST(g)
 	for _, e := range mst.Edges() {
 		fmt.Println(e)
 	}

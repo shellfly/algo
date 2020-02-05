@@ -31,11 +31,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewDigraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewDigraph(stdin.NewIn(os.Args[1]))
 	fmt.Println(graph)
 }

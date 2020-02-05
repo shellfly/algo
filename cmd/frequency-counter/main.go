@@ -29,25 +29,25 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
 	minLen, _ := strconv.Atoi(os.Args[1])
-	//st := algo.NewSequentialSearchST()
-	//st := algo.NewBinarySearchST()
-	//st := algo.NewBST()
-	// st := algo.NewRedBlackBST()
-	//st := algo.NewSeparateChainHashST(0)
-	st := algo.NewLinearProbingHashST(0)
+	//st := algs4.NewSequentialSearchST()
+	//st := algs4.NewBinarySearchST()
+	//st := algs4.NewBST()
+	// st := algs4.NewRedBlackBST()
+	//st := algs4.NewSeparateChainHashST(0)
+	st := algs4.NewLinearProbingHashST(0)
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		word := stdin.ReadString()
 		if len(word) < minLen {
 			continue
 		}
-		wordKey := algo.StringHashKey(word)
+		wordKey := algs4.StringHashKey(word)
 		if !st.Contains(wordKey) {
 			st.Put(wordKey, 1)
 		} else {
@@ -55,11 +55,11 @@ func main() {
 		}
 	}
 
-	max := algo.StringHashKey("")
+	max := algs4.StringHashKey("")
 	st.Put(max, 0)
 	for _, word := range st.Keys() {
-		if st.GetInt(word.(algo.StringHashKey)) > st.GetInt(max) {
-			max = word.(algo.StringHashKey)
+		if st.GetInt(word.(algs4.StringHashKey)) > st.GetInt(max) {
+			max = word.(algs4.StringHashKey)
 		}
 	}
 	fmt.Printf("%s %d", max, st.GetInt(max))

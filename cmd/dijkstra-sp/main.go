@@ -34,14 +34,14 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewEdgeWeightedDigraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewEdgeWeightedDigraph(stdin.NewIn(os.Args[1]))
 	s, _ := strconv.Atoi(os.Args[2])
-	sp := algo.NewDijkstraSP(graph, s)
+	sp := algs4.NewDijkstraSP(graph, s)
 	for t := 0; t < graph.V(); t++ {
 		if sp.HasPathTo(t) {
 			fmt.Printf("%d to %d (%.2f)  ", s, t, sp.DistTo(t))

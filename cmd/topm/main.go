@@ -23,22 +23,22 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 )
 
 func main() {
 	m, _ := strconv.Atoi(os.Args[1])
-	pq := algo.NewMinPQ()
+	pq := algs4.NewMinPQ()
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		line := scanner.Text()
-		pq.Insert(*algo.NewTransaction(line))
+		pq.Insert(*algs4.NewTransaction(line))
 		if pq.Size() > m {
 			pq.DelMin()
 		}
 	}
 
-	s := algo.NewStack()
+	s := algs4.NewStack()
 	for !pq.IsEmpty() {
 		s.Push(pq.DelMin())
 	}

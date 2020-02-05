@@ -53,12 +53,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	sg := algo.NewSymbolGraph(os.Args[1], os.Args[2])
+	sg := algs4.NewSymbolGraph(os.Args[1], os.Args[2])
 	g := sg.G()
 	source := os.Args[3]
 	if !sg.Contains(source) {
@@ -66,7 +66,7 @@ func main() {
 		return
 	}
 	s := sg.Index(source)
-	bfs := algo.NewBreadFirstPaths(g, s)
+	bfs := algs4.NewBreadFirstPaths(g, s)
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {
 		sink := strings.Trim(stdin.ReadString(), " ")

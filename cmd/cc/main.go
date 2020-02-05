@@ -33,18 +33,18 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewGraph(stdin.NewIn(os.Args[1]))
-	cc := algo.NewCC(graph)
+	graph := algs4.NewGraph(stdin.NewIn(os.Args[1]))
+	cc := algs4.NewCC(graph)
 
 	fmt.Println(cc.Count(), " components")
-	var components = []*algo.Bag{}
+	var components = []*algs4.Bag{}
 	for i := 0; i < cc.Count(); i++ {
-		components = append(components, algo.NewBag())
+		components = append(components, algs4.NewBag())
 	}
 
 	for v := 0; v < graph.V(); v++ {

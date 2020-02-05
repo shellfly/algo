@@ -22,14 +22,14 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewGraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewGraph(stdin.NewIn(os.Args[1]))
 	s, _ := strconv.Atoi(os.Args[2])
-	search := algo.NewDepthFirstSearch(graph, s)
+	search := algs4.NewDepthFirstSearch(graph, s)
 	for v := 0; v < graph.V(); v++ {
 		if search.Marked(v) {
 			fmt.Println(v, " ")

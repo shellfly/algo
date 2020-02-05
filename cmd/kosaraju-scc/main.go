@@ -66,18 +66,18 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	g := algo.NewDigraph(stdin.NewIn(os.Args[1]))
-	scc := algo.NewKosarajuSCC(g)
+	g := algs4.NewDigraph(stdin.NewIn(os.Args[1]))
+	scc := algs4.NewKosarajuSCC(g)
 	m := scc.Count()
 	fmt.Println(m, "strong components")
-	components := make([]*algo.Queue, m)
+	components := make([]*algs4.Queue, m)
 	for i := 0; i < m; i++ {
-		components[i] = algo.NewQueue()
+		components[i] = algs4.NewQueue()
 	}
 	for v := 0; v < g.V(); v++ {
 		components[scc.ID(v)].Enqueue(v)

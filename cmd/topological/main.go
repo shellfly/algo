@@ -28,13 +28,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 )
 
 func main() {
 	filename, sp := os.Args[1], os.Args[2]
-	sg := algo.NewSymbolDigraph(filename, sp)
-	top := algo.NewTopological(sg.G())
+	sg := algs4.NewSymbolDigraph(filename, sp)
+	top := algs4.NewTopological(sg.G())
 	for _, v := range top.Order() {
 		fmt.Println(sg.Name(v))
 	}

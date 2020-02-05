@@ -45,12 +45,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	sg := algo.NewSymbolGraph(os.Args[1], os.Args[2])
+	sg := algs4.NewSymbolGraph(os.Args[1], os.Args[2])
 	g := sg.G()
 	stdin := stdin.NewStdIn()
 	for !stdin.IsEmpty() {

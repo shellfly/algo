@@ -27,7 +27,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
@@ -49,7 +49,7 @@ func (s StringPQItem) String() string {
 
 func merge(streams []*stdin.In) {
 	n := len(streams)
-	pq := algo.NewIndexMinPQ(n)
+	pq := algs4.NewIndexMinPQ(n)
 	for i := 0; i < n; i++ {
 		if !streams[i].IsEmpty() {
 			str := streams[i].ReadString()

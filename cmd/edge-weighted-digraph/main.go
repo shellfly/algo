@@ -26,11 +26,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewEdgeWeightedDigraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewEdgeWeightedDigraph(stdin.NewIn(os.Args[1]))
 	fmt.Println(graph)
 }

@@ -25,19 +25,19 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewDigraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewDigraph(stdin.NewIn(os.Args[1]))
 
 	sources := []int{}
 	for i := 2; i < len(os.Args); i++ {
 		s, _ := strconv.Atoi(os.Args[i])
 		sources = append(sources, s)
 	}
-	reachable := algo.NewDirectedDFSSources(graph, sources)
+	reachable := algs4.NewDirectedDFSSources(graph, sources)
 	for v := 0; v < graph.V(); v++ {
 		if reachable.Marked(v) {
 			fmt.Println(v, " ")

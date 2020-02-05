@@ -35,14 +35,14 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewGraph(stdin.NewIn(os.Args[1]))
+	graph := algs4.NewGraph(stdin.NewIn(os.Args[1]))
 	s, _ := strconv.Atoi(os.Args[2])
-	p := algo.NewDepthFirstPaths(graph, s)
+	p := algs4.NewDepthFirstPaths(graph, s)
 
 	for v := 0; v < graph.V(); v++ {
 		if p.HasPathTo(v) {

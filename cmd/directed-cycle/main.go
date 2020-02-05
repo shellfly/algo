@@ -20,13 +20,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
-	graph := algo.NewDigraph(stdin.NewIn(os.Args[1]))
-	finder := algo.NewDirectedCycle(graph)
+	graph := algs4.NewDigraph(stdin.NewIn(os.Args[1]))
+	finder := algs4.NewDirectedCycle(graph)
 	if finder.HasCycle() {
 		for _, v := range finder.Cycle().Slice() {
 			fmt.Print(v, " ")

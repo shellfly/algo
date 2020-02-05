@@ -27,14 +27,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/shellfly/algo"
+	"github.com/shellfly/algo/algs4"
 	"github.com/shellfly/algo/stdin"
 )
 
 func main() {
 	items := stdin.ReadAllStrings()
-	algo.MergeSort(algo.StringSlice(items))
-	if !algo.IsSorted(algo.StringSlice(items)) {
+	algs4.MergeSort(algs4.StringSlice(items))
+	if !algs4.IsSorted(algs4.StringSlice(items)) {
 		fmt.Println("Not Sorted")
 		fmt.Println(items)
 	} else {
