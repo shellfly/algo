@@ -6,6 +6,12 @@ import (
 	"github.com/shellfly/algo/stdin"
 )
 
+// DigraphInterface ...
+type DigraphInterface interface {
+	V() int
+	Adj() []*DirectedEdge
+}
+
 // Digraph ...
 type Digraph struct {
 	v, e int

@@ -75,6 +75,9 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * Shortest Paths
     * [EdgeWeightedDigraph](edge_weighted_digraph.go)
     * [DijkstraSP](dijkstra_sp.go)
+    * [AcyclicSP](acyclic_sp.go)
+    * [BellmanFordSP](bellman_ford_sp.go)
+
 
 * 5 STRING
 
