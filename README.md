@@ -72,6 +72,8 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [LazyPrimMST](lazy_prim_mst.go)
     * [PrimMST](prim_mst.go)
     * [KruskalMST](kruskal_mst.go)
+  * Shortest Paths
+    * [EdgeWeightedDigraph](edge_weighted_digraph.go)
 
 * 5 STRING
 
