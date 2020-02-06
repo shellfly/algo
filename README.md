@@ -82,7 +82,8 @@ To test each algorithm(data structure), instead of running the file directly, yo
 * 5 STRING
 
   * [LSD](algs4/lsd.go)
-  * [LSD](algs4/msd.go)
+  * [MSD](algs4/msd.go)
+
 
 ## License
 
