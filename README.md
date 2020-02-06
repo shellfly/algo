@@ -75,7 +75,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [LSD](algs4/lsd.go)
   * [MSD](algs4/msd.go)
   * [Quick3string](algs4/quick3_string.go)
-  * [TrieST](trie_st.go)
+  * [TrieST](algs4/trie_st.go)
 
 
 ## License
