@@ -19,14 +19,11 @@ To test each algorithm(data structure), instead of running the file directly, yo
 ## Index
 
 * 1 FUNDAMENTALS
-
   * [Bag](algs4/bag.go)
   * [Queue](algs4/queue.go)
   * [Stack](algs4/stack.go)
   * [UnionFind](algs4/uf.go)
-
 * 2 SORTING
-
   * [Selection](algs4/selection.go)
   * [Insertion](algs4/insertion.go)
   * [Shell](algs4/shell.go)
@@ -38,9 +35,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [IndexMinPQ](algs4/index_min_pq.go)
   * [Multiway](algs4/cmd/multiway/main.go)
   * [Heap](algs4/heap.go)
-
 * 3 SEARCHING
-
   * [FrequencyCounter](algs4/cmd/frequency-counter/main.go)
   * [SequentialSearchST](algs4/sequential_search.go)
   * [BinarySearchST](algs4/binary_search_st.go)
@@ -48,7 +43,6 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [RedBlackBST](algs4/red_black_bst.go)
   * [SeparateChainingHashST](algs4/separate_chaining_hash_st.go)
   * [LinearProbingHashST](algs4/linear_probing_hash_st.go)
-
 * 4 GRAPHS
   * Graph
     * [Graph](algs4/graph.go)
@@ -77,12 +71,11 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [DijkstraSP](algs4/dijkstra_sp.go)
     * [AcyclicSP](algs4/acyclic_sp.go)
     * [BellmanFordSP](algs4/bellman_ford_sp.go)
-
-
 * 5 STRING
-
   * [LSD](algs4/lsd.go)
   * [MSD](algs4/msd.go)
+  * [Quick3string](algs4/quick3_string.go)
+  * [TrieST](trie_st.go)
 
 
 ## License
