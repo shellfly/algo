@@ -78,6 +78,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [TrieST](algs4/trie_st.go)
   * [TST](algs4/tst.go)
   * [KMP](algs4/kmp.go)
+  * [NFA](algs4/nfa.go)
 
 
 ## License
