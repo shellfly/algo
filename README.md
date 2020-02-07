@@ -77,6 +77,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [Quick3string](algs4/quick3_string.go)
   * [TrieST](algs4/trie_st.go)
   * [TST](algs4/tst.go)
+  * [KMP](algs4/kmp.go)
 
 
 ## License
