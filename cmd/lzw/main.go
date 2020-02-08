@@ -6,13 +6,8 @@
  *
  *  Compress or expand binary input from standard input using LZW.
  *
- *  WARNING: STARTING WITH ORACLE JAVA 6, UPDATE 7 the SUBSTRING
- *  METHOD TAKES TIME AND SPACE LINEAR IN THE SIZE OF THE EXTRACTED
- *  SUBSTRING (INSTEAD OF CONSTANT SPACE AND TIME AS IN EARLIER
- *  IMPLEMENTATIONS).
- *
- *  See <a href = "http://java-performance.info/changes-to-string-java-1-7-0_06/">this article</a>
- *  for more details.
+ *  % go run cmd/lzw/main.go - < abraLZW.txt | go run cmd/lzw/main.go +
+ *  ABRACADBRACRAACRA
  *
  ******************************************************************************/
 
