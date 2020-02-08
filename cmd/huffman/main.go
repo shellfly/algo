@@ -1,7 +1,6 @@
 /******************************************************************************
  *  Execution:    go run cmd/huffman/main.go - < input.txt   (compress)
  *  Execution:    go run cmd/huffman/main.go + < input.txt   (expand)
- *  Dependencies: BinaryIn.java BinaryOut.java
  *  Data files:   https://algs4.cs.princeton.edu/55compression/abra.txt
  *                https://algs4.cs.princeton.edu/55compression/tinytinyTale.txt
  *                https://algs4.cs.princeton.edu/55compression/medTale.txt

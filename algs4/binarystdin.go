@@ -10,18 +10,18 @@ import (
 var BinaryStdin = &binaryStdin{os.Stdin, 0, 0, false, nil}
 
 type binaryStdin struct {
-	br     io.Reader
-	buffer int // one character buffer
-	n      int // number of bits left in buffer
-	isInitialized bool 
-	err    error
+	in            io.Reader
+	buffer        int // one character buffer
+	n             int // number of bits left in buffer
+	isInitialized bool
+	err           error
 }
 
 func (bs *binaryStdin) fillBuffer() {
 	byte := make([]byte, 1)
-	_, err := bs.br.Read(byte)
+	_, err := bs.in.Read(byte)
 	if err != nil {
-		if err == io.EOF{
+		if err == io.EOF {
 			bs.err = io.EOF
 			bs.n = -1
 		} else {
@@ -29,17 +29,17 @@ func (bs *binaryStdin) fillBuffer() {
 		}
 	}
 	bs.n = 8
-	
+
 	bs.buffer = int(byte[0])
 }
 
 // ReadBool reads the next bit of data from standard input and return as a boolean.
 func (bs *binaryStdin) ReadBool() bool {
-	if bs.IsEmpty(){
+	if bs.IsEmpty() {
 		panic("reading from empty input stream")
 	}
 	bs.n--
-	bit := (bs.buffer>>bs.n & 1) == 1
+	bit := (bs.buffer >> bs.n & 1) == 1
 	if bs.n == 0 {
 		bs.fillBuffer()
 	}
@@ -48,7 +48,7 @@ func (bs *binaryStdin) ReadBool() bool {
 
 // ReadInt reads the next 32 bits from standard input and return as a 32-bit int.
 func (bs *binaryStdin) ReadInt() int {
-	if bs.IsEmpty(){
+	if bs.IsEmpty() {
 		panic("reading from empty input stream")
 	}
 	x := 0
@@ -60,9 +60,29 @@ func (bs *binaryStdin) ReadInt() int {
 	return x
 }
 
+// ReadIntR reads the next r bits from standard input and return as a 32-bit int.
+func (bs *binaryStdin) ReadIntR(r int) int {
+	if r < 1 || r > 32 {
+		panic("invalid bits r")
+	}
+	if r == 32 {
+		return bs.ReadInt()
+	}
+
+	x := 0
+	for i := 0; i < r; i++ {
+		x <<= 1
+		bit := bs.ReadBool()
+		if bit {
+			x |= 1
+		}
+	}
+	return x
+}
+
 // ReadByte the next 8 bits from standard input and return as a byte
 func (bs *binaryStdin) ReadByte() byte {
-	if bs.IsEmpty(){
+	if bs.IsEmpty() {
 		panic("reading from empty input stream")
 	}
 	if bs.n == 8 {
@@ -81,7 +101,7 @@ func (bs *binaryStdin) ReadByte() byte {
 
 // ReadString reads the remaining bytes of data from standard input and return as a string.
 func (bs *binaryStdin) ReadString() string {
-	if bs.IsEmpty(){
+	if bs.IsEmpty() {
 		panic("reading from empty input stream")
 	}
 
@@ -93,7 +113,7 @@ func (bs *binaryStdin) ReadString() string {
 	return sb.String()
 }
 
-func (bs *binaryStdin) initialize(){
+func (bs *binaryStdin) initialize() {
 	bs.fillBuffer()
 	bs.isInitialized = true
 }
