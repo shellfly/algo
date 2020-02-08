@@ -2,7 +2,6 @@ package algs4
 
 import (
 	"fmt"
-	"github.com/shellfly/algo/stdin"
 )
 
 type huffmanNode struct {
@@ -24,7 +23,7 @@ func (hn *huffmanNode) CompareTo(other interface{}) int {
 	return 0
 }
 func (hn *huffmanNode) String() string {
-	return fmt.Sprintf("%s-%s", hn.ch, hn.freq)
+	return fmt.Sprintf("%c-%d-(%v-%v)", hn.ch, hn.freq, hn.left, hn.right)
 }
 
 // Huffman ...
@@ -39,36 +38,35 @@ func NewHuffman() *Huffman {
 
 // Compress ...
 func (h Huffman) Compress() {
-	s := stdin.NewStdIn().ReadString()
+	s := BinaryStdin.ReadString()
 	freq := make([]int, h.R)
 	for i := 0; i < len(s); i++ {
 		freq[s[i]]++
 	}
 	// build huffman trie
-	root := buildTrie(freq)
+	root := h.buildTrie(freq)
 
 	// build code table
 	st := make([]string, h.R)
 	h.buildCode(st, root, "")
-
 	// print trie for decoder
 	h.writeTrie(root)
 
 	// print number of bytes in original uncompressed message
-	fmt.Println(len(s))
+	BinaryStdout.WriteInt(len(s))
 
 	// use Huffman code to encode input
 	for i := 0; i < len(s); i++ {
 		code := st[s[i]]
 		for j := 0; j < len(code); j++ {
 			if string(code[j]) == "0" {
-				fmt.Print(0)
+				BinaryStdout.WriteBit(false)
 			} else if string(code[j]) == "1" {
-				fmt.Print(1)
+				BinaryStdout.WriteBit(true)
 			}
 		}
 	}
-	fmt.Println(s)
+	BinaryStdout.Close()
 }
 
 func (h Huffman) buildTrie(freq []int) *huffmanNode {
@@ -85,4 +83,50 @@ func (h Huffman) buildTrie(freq []int) *huffmanNode {
 		pq.Insert(parent)
 	}
 	return pq.DelMin().(*huffmanNode)
+}
+
+func (h Huffman) writeTrie(x *huffmanNode) {
+	if x.isLeaf() {
+		BinaryStdout.WriteBit(true)
+		BinaryStdout.WriteByte(x.ch)
+		return
+	}
+	BinaryStdout.WriteBit(false)
+	h.writeTrie(x.left)
+	h.writeTrie(x.right)
+}
+
+func (h Huffman) buildCode(st []string, x *huffmanNode, s string) {
+	if !x.isLeaf() {
+		h.buildCode(st, x.left, s+"0")
+		h.buildCode(st, x.right, s+"1")
+	} else {
+		st[x.ch] = s
+	}
+}
+
+// Expand ...
+func (h Huffman) Expand() {
+	root := readTrie()
+	length := BinaryStdin.ReadInt()
+	for i := 0; i < length; i++ {
+		x := root
+		for !x.isLeaf() {
+			bit := BinaryStdin.ReadBool()
+			if bit {
+				x = x.right
+			} else {
+				x = x.left
+			}
+		}
+		BinaryStdout.WriteByte(x.ch)
+	}
+}
+
+func readTrie() *huffmanNode {
+	isLeaf := BinaryStdin.ReadBool()
+	if isLeaf {
+		return &huffmanNode{BinaryStdin.ReadByte(), -1, nil, nil}
+	}
+	return &huffmanNode{'0', -1, readTrie(), readTrie()}
 }

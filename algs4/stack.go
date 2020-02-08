@@ -14,7 +14,7 @@ func NewStack() *Stack {
 
 // Push ...
 func (s *Stack) Push(item interface{}) {
-	s.LinkList.Add(item)
+	s.Add(item)
 }
 
 // Pop ...

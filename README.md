@@ -14,7 +14,7 @@ Try to keep the interface and variable name consistent with the original book wh
 ## Note
 
 Unlike Java or Python where you can put `main` function in a file directly. In `go` the `main` function has to be in the `main` package and in the **cmd** directory by convention.
-To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](algs4/cmd/bag/main.go)
+To test each algorithm(data structure), instead of running the file directly, you have to run the file under **cmd** directory. Example: [cmd/bag/main.go](cmd/bag/main.go)
 
 ## Index
 
@@ -31,12 +31,12 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [Quick](algs4/quick.go)
   * [Quick3Way](algs4/quick_3way.go)
   * [MaxPQ](algs4/max_pq.go)
-  * [TopM](algs4/cmd/topm/main.go)
+  * [TopM](cmd/topm/main.go)
   * [IndexMinPQ](algs4/index_min_pq.go)
-  * [Multiway](algs4/cmd/multiway/main.go)
+  * [Multiway](cmd/multiway/main.go)
   * [Heap](algs4/heap.go)
 * 3 SEARCHING
-  * [FrequencyCounter](algs4/cmd/frequency-counter/main.go)
+  * [FrequencyCounter](cmd/frequency-counter/main.go)
   * [SequentialSearchST](algs4/sequential_search.go)
   * [BinarySearchST](algs4/binary_search_st.go)
   * [BST](algs4/bst.go)
@@ -52,7 +52,7 @@ To test each algorithm(data structure), instead of running the file directly, yo
     * [CC](algs4/cc.go)
     * [Cycle](algs4/cycle.go)
     * [SymbolGraph](algs4/symbol_graph.go)
-    * [DegreesOfSeparation](algs4/cmd/degrees-of-separation/main.go)
+    * [DegreesOfSeparation](cmd/degrees-of-separation/main.go)
   * Digraph
     * [Digraph](algs4/digraph.go)
     * [SymbolDigraph](algs4/symbol_digraph.go)
@@ -79,6 +79,8 @@ To test each algorithm(data structure), instead of running the file directly, yo
   * [TST](algs4/tst.go)
   * [KMP](algs4/kmp.go)
   * [NFA](algs4/nfa.go)
+  * [Huffman](algs4/huffman.go)
+  * [LZW](algs4/lzw.go)
 
 
 ## License
