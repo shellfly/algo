@@ -43,7 +43,7 @@ func main() {
 	}
 
 	fmt.Println("size of bag = ", bag.Size())
-	for _, item := range bag.Slice() {
+	for _, item := range bag.StringSlice() {
 		fmt.Println(item)
 	}
 }

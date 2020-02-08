@@ -60,3 +60,19 @@ func (q Queue) Slice() (items []interface{}) {
 	}
 	return
 }
+
+// IntSlice returns a slice of int values for iterating
+func (q *Queue) IntSlice() (items []int) {
+	for curr := q.first; curr != nil; curr = curr.Next {
+		items = append(items, curr.Item.(int))
+	}
+	return
+}
+
+// StringSlice returns a slice of int values for iterating
+func (q *Queue) StringSlice() (items []string) {
+	for curr := q.first; curr != nil; curr = curr.Next {
+		items = append(items, curr.Item.(string))
+	}
+	return
+}

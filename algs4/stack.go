@@ -2,26 +2,19 @@ package algs4
 
 import "github.com/shellfly/algo/linklist"
 
-// Stack ...
+// Stack implements a stack by linklist
 type Stack struct {
-	first *linklist.Node
-	n     int
+	*linklist.LinkList
 }
 
 // NewStack ...
 func NewStack() *Stack {
-	return &Stack{}
-}
-
-// IsEmpty ...
-func (s Stack) IsEmpty() bool {
-	return s.first == nil
+	return &Stack{linklist.NewLinkList()}
 }
 
 // Push ...
 func (s *Stack) Push(item interface{}) {
-	s.first = linklist.NewNode(item, s.first)
-	s.n++
+	s.LinkList.Add(item)
 }
 
 // Pop ...
@@ -29,20 +22,6 @@ func (s *Stack) Pop() (item interface{}) {
 	if s.IsEmpty() {
 		panic("Stack Empty")
 	}
-	item = s.first.Item
-	s.first = s.first.Next
-	return
-}
-
-// Size ...
-func (s Stack) Size() int {
-	return s.n
-}
-
-// Slice ...
-func (s Stack) Slice() (items []interface{}) {
-	for !s.IsEmpty() {
-		items = append(items, s.Pop())
-	}
+	item = s.Del()
 	return
 }

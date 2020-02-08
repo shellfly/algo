@@ -7,21 +7,7 @@
  *  to be or not to - be - - that - - - is
  *
  *  % go run cmd/stack/main.go < tobe.txt
- *  size of stack = 14
- *  is
- *  -
- *  -
- *  -
- *  that
- *  -
- *  -
- *  be
- *  -
- *  to
- *  not
- *  or
- *  be
- *  to
+ *  to be not that or be (2 left on stack)
  *
  ******************************************************************************/
 
@@ -38,11 +24,11 @@ func main() {
 	words := stdin.ReadAllStrings()
 	stack := algs4.NewStack()
 	for _, word := range words {
-		stack.Push(word)
+		if !(word == "-") {
+			stack.Push(word)
+		} else if !stack.IsEmpty() {
+			fmt.Print(stack.Pop(), " ")
+		}
 	}
-
-	fmt.Println("size of stack = ", stack.Size())
-	for item := stack.Pop(); !stack.IsEmpty(); item = stack.Pop() {
-		fmt.Println(item)
-	}
+	fmt.Println("(", stack.Size(), " left on stack)")
 }
