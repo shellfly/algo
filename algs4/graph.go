@@ -56,11 +56,7 @@ func (g *Graph) AddEdge(v, w int) {
 
 // Adj ...
 func (g *Graph) Adj(v int) []int {
-	var items []int
-	for _, item := range g.adj[v].Slice() {
-		items = append(items, item.(int))
-	}
-	return items
+	return g.adj[v].IntSlice()
 }
 
 func (g *Graph) String() string {

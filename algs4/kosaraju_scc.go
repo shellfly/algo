@@ -13,9 +13,9 @@ func NewKosarajuSCC(g *Digraph) *KosarajuSCC {
 	id := make([]int, g.V())
 	k := &KosarajuSCC{marked: marked, id: id}
 	order := NewDepthFirstOrder(g.Reverse())
-	for _, v := range order.ReversePost().Slice() {
-		if !k.marked[v.(int)] {
-			k.Dfs(g, v.(int))
+	for _, v := range order.ReversePost().IntSlice() {
+		if !k.marked[v] {
+			k.Dfs(g, v)
 			k.count++
 		}
 	}

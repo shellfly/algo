@@ -52,20 +52,16 @@ func (n *NFA) Recognizes(txt string) bool {
 
 	for i := 0; i < len(txt); i++ {
 		match := NewBag()
-		for _, v := range pc.Slice() {
-			if v.(int) < n.m {
-				if n.re[v.(int)] == txt[i] || string(n.re[v.(int)]) == "." {
-					match.Add(v.(int) + 1)
+		for _, v := range pc.IntSlice() {
+			if v < n.m {
+				if n.re[v] == txt[i] || string(n.re[v]) == "." {
+					match.Add(v + 1)
 				}
 			}
 		}
 
-		matches := []int{}
-		for _, m := range match.Slice() {
-			matches = append(matches, m.(int))
-		}
 		pc = NewBag()
-		dfs = NewDirectedDFSSources(n.g, matches)
+		dfs = NewDirectedDFSSources(n.g, match.IntSlice())
 		for v := 0; v < n.g.V(); v++ {
 			if dfs.Marked(v) {
 				pc.Add(v)
@@ -73,8 +69,8 @@ func (n *NFA) Recognizes(txt string) bool {
 		}
 	}
 
-	for _, v := range pc.Slice() {
-		if v.(int) == n.m {
+	for _, v := range pc.IntSlice() {
+		if v == n.m {
 			return true
 		}
 	}

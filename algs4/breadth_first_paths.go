@@ -46,9 +46,5 @@ func (s *BreadFirstPaths) PathTo(v int) []int {
 		path.Push(x)
 	}
 	path.Push(s.s)
-	vertexes := []int{}
-	for _, x := range path.Slice() {
-		vertexes = append(vertexes, x.(int))
-	}
-	return vertexes
+	return path.IntSlice()
 }

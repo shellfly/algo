@@ -73,8 +73,8 @@ func (t *TrieST) Keys() []string {
 func (t *TrieST) KeysWithPrefix(pre string) (keys []string) {
 	q := NewQueue()
 	t.collect(t.get(t.root, pre, 0), pre, q)
-	for _, item := range q.Slice() {
-		keys = append(keys, item.(string))
+	for _, item := range q.StringSlice() {
+		keys = append(keys, item)
 	}
 	return
 }
@@ -95,8 +95,8 @@ func (t *TrieST) collect(x *trieNode, pre string, q *Queue) {
 func (t *TrieST) KeysThatMatch(pat string) (keys []string) {
 	q := NewQueue()
 	t.collectMatch(t.root, "", pat, q)
-	for _, item := range q.Slice() {
-		keys = append(keys, item.(string))
+	for _, item := range q.StringSlice() {
+		keys = append(keys, item)
 	}
 	return
 }
